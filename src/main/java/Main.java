@@ -87,5 +87,46 @@ class Main
 
     return maxSum;
 }
+
+  public static int getMax(Queue<Integer> q)
+	{
+	    q.insert(null);
+	    int max = 0;
+	    while(q.head() != null)
+	    {
+	        int x = q.remove();
+	        if(x>max)
+	        {
+	            max = x;
+	        }
+	        q.insert(x);
+	    }
+	    q.remove();
+	    return max;
+	}
+	
+	public static int numDigit(int x)
+	{
+	    return (int)Math.log10(x)+1;
+	}
+	
+	public static int retDigit(int num, int p)
+	{
+	    int l = numDigit(num);
+	    if(p>=l)
+	    {
+	        return 0; 
+	    }
+	    for(int i=0; i<=l; i++)
+	    {
+	       if(p!=0)
+	       {
+	          num = num/10;
+	          p--; 
+	       }
+	       
+	    }
+	    return num%10;
+	}
   
 }
