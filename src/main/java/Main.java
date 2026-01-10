@@ -128,5 +128,31 @@ class Main
 	    }
 	    return num%10;
 	}
+
+	public static boolean ex2(Queue<String> q)
+{
+    Queue<String> t = new Queue<>();
+
+    while (!q.isEmpty())
+    {
+        String x = q.remove();
+
+        if (isIn(x, t))
+        {
+            q.insert(x);
+            while (!t.isEmpty())
+                q.insert(t.remove());
+            return true;
+        }
+
+        t.insert(x);
+    }
+
+    while (!t.isEmpty())
+        q.insert(t.remove());
+
+    return false;
+}
+	
   
 }
